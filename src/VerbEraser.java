@@ -5,6 +5,7 @@ import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 public class VerbEraser {
     private static final String INPUTPATH = "txt/input/";
     private static final String OUTPUTPATH = "txt/output/";
+    private static final String OUTSUFFIX = "-out";
     private static final String SUFFIX = ".txt";
     private static final String FILELISTPATH = INPUTPATH + "file-list" + SUFFIX;
     private static final String MODELPATH = "taggers/wsj-0-18-bidirectional-distsim.tagger";
@@ -47,7 +48,7 @@ public class VerbEraser {
         String raw = readFromFile(INPUTPATH + fileName + SUFFIX);
         String tagged = tagger.tagString(raw);
         String verbErased = substituteVerbs(tagged);
-        writeToFile(OUTPUTPATH + fileName + "-out" + SUFFIX, verbErased);
+        writeToFile(OUTPUTPATH + fileName + OUTSUFFIX + SUFFIX, verbErased);
     }
 
     private static void workAllFiles(MaxentTagger tagger, String fileList) throws FileNotFoundException {
@@ -69,10 +70,21 @@ public class VerbEraser {
         }
     }
 
+    private static void mergeTexts(String fileList) throws FileNotFoundException {
+        String result = "";
+        Scanner listScanner = new Scanner(fileList);
+        while (listScanner.hasNextLine()) {
+            String fileName = listScanner.nextLine();
+            result += readFromFile(OUTPUTPATH + fileName + OUTSUFFIX + SUFFIX);
+        }
+        writeToFile(OUTPUTPATH + "merged" + SUFFIX, result);
+    }
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         MaxentTagger tagger = new MaxentTagger(MODELPATH);
         makeFileList();
         String fileList = readFromFile(FILELISTPATH);
         workAllFiles(tagger, fileList);
+        mergeTexts(fileList);
     }
 }
