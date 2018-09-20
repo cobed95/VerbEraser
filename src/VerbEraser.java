@@ -26,13 +26,13 @@ public class VerbEraser {
         while (stringScanner.hasNext()) {
             String word = stringScanner.next();
             String raw = word.substring(0, word.indexOf('_'));
-            char tag = word.charAt(word.indexOf('_') + 1);
-
-            if (tag >= 33 && tag <= 47) result += raw;
-            else if (tag == 'V') result += " ________";
+            String tag = word.substring(word.indexOf('_') + 1);
+            if (tag.charAt(0) >= 33 && tag.charAt(0) <= 47) result += raw;
+            else if (tag.charAt(0) == 'V') result += " ________";
+            else if (tag.equals("MD")) result += "________";
             else if (raw.length() > 3
-                    && (raw.substring(raw.length() - 3, raw.length()).equals("ing")
-                        || raw.substring(raw.length() - 2, raw.length()).equals("ed")))
+                    && (raw.substring(raw.length() - 3).equals("ing")
+                        || raw.substring(raw.length() - 2).equals("ed")))
                 result += " ________";
             else result += " " + raw;
         }
