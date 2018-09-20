@@ -1,0 +1,4 @@
+﻿1
+M Do you want to go for a bicycle ride this weekend? 
+W I'd love to, but I don't have a bicycle. 
+M It's no problem. I have an extra one you can borrow. W That's fantastic. Where should we go?

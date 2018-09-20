@@ -1,0 +1,11 @@
+﻿7
+M Hey, can you grab me two onions? 
+W Here you go. Anything else I can do for you? 
+M Sure. See the three carrots over there? Can you cut them up? 
+W No problem. What are you making, by the way? 
+M A winter soup. But I still have to add more ingredients. 
+W Like what? These apples? 
+M No, the three apples are for a special tea. 
+W I see. So, are you going to add all these other things? 
+M Yep. The garlic, peppers, beef, and potatoes. 
+W Wow, this looks like it will be great.

@@ -1,0 +1,11 @@
+﻿14
+W Look. What do you think of my new computer? 
+M It looks expensive. How much did you pay for it? 
+W I got it at a great price. 
+M Was it on sale? 
+W Sort of. It's new, but it's an older model. 
+M Oh, well, it looks great. 
+W Yeah, it's not the fastest, but I only need it for word
+processing. 
+M Is it connected to the Internet? 
+W Yeah, I need that to study English.

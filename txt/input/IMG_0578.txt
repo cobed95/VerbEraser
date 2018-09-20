@@ -1,0 +1,12 @@
+﻿6
+W Mr. Potter, come in. 
+M Hi.
+W So, how's the pain? Does it still hurt? 
+M Yes, very much. Do I have cavities or something? 
+W Well, yes. I think your wisdom tooth will need to come out.
+M Will that be expensive?
+W It depends. You have dental insurance, don't you? 
+M No, I don't. 
+W In that case, it will be fairly expensive. 
+M I see. If it needs to be pulled out, there's no reason to wait. 
+W OK. Let's get it out right away.

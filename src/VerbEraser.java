@@ -1,11 +1,16 @@
 import java.io.*;
 import java.util.*;
-import java.io.IOException;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 
 public class VerbEraser {
-    private static String readFromFile(String fileName) throws FileNotFoundException {
-        Scanner fileScanner = new Scanner(new File(fileName));
+    private static final String INPUTPATH = "txt/input/";
+    private static final String OUTPUTPATH = "txt/output/";
+    private static final String SUFFIX = ".txt";
+    private static final String FILELISTPATH = INPUTPATH + "file-list" + SUFFIX;
+    private static final String MODELPATH = "taggers/wsj-0-18-bidirectional-distsim.tagger";
+
+    private static String readFromFile(String filePath) throws FileNotFoundException {
+        Scanner fileScanner = new Scanner(new File(filePath));
         String result = "";
         while (fileScanner.hasNextLine()) {
             result += fileScanner.nextLine();
@@ -19,25 +24,55 @@ public class VerbEraser {
         String result = "";
         while (stringScanner.hasNext()) {
             String word = stringScanner.next();
-            if (word.equals("\n")) result += "\n";
-            else if (word.charAt(word.indexOf('_') + 1) == 'V') result += "____";
-            else result += word.substring(0, word.indexOf('_'));
-            result += " ";
+            String raw = word.substring(0, word.indexOf('_'));
+            char tag = word.charAt(word.indexOf('_') + 1);
+
+            if (tag >= 33 && tag <= 47) result += raw;
+            else if (tag == 'V') result += " ________";
+            else if (raw.length() > 3
+                    && (raw.substring(raw.length() - 3, raw.length()).equals("ing")
+                        || raw.substring(raw.length() - 2, raw.length()).equals("ed")))
+                result += " ________";
+            else result += " " + raw;
         }
         return result;
     }
 
-    private static void writeToFile(String fileName, String text) throws FileNotFoundException {
-        PrintStream out = new PrintStream(new File(fileName));
+    private static void writeToFile(String filePath, String text) throws FileNotFoundException {
+        PrintStream out = new PrintStream(new File(filePath));
         out.println(text);
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
-        MaxentTagger tagger = new MaxentTagger("taggers/wsj-0-18-bidirectional-distsim.tagger");
-
-        String raw = readFromFile("txt/input.txt");
+    private static void workOneFile(MaxentTagger tagger, String fileName) throws FileNotFoundException {
+        String raw = readFromFile(INPUTPATH + fileName + SUFFIX);
         String tagged = tagger.tagString(raw);
         String verbErased = substituteVerbs(tagged);
-        writeToFile("txt/output.txt", verbErased);
+        writeToFile(OUTPUTPATH + fileName + "-out" + SUFFIX, verbErased);
+    }
+
+    private static void workAllFiles(MaxentTagger tagger, String fileList) throws FileNotFoundException {
+        Scanner listScanner = new Scanner(fileList);
+        while (listScanner.hasNextLine()) {
+            String fileName = listScanner.nextLine();
+            workOneFile(tagger, fileName);
+        }
+    }
+
+    private static void makeFileList() throws FileNotFoundException {
+        PrintStream out = new PrintStream(new File(FILELISTPATH));
+        String prefix = "IMG_0";
+        for (int i = 475; i <= 644; i++) {
+            if (i > 479 && i < 573) continue;
+            else if (i > 590 && i < 628) continue;
+            else if (i == 630) continue;
+            else out.println(prefix + i);
+        }
+    }
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+        MaxentTagger tagger = new MaxentTagger(MODELPATH);
+        makeFileList();
+        String fileList = readFromFile(FILELISTPATH);
+        workAllFiles(tagger, fileList);
     }
 }

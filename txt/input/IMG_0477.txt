@@ -1,0 +1,52 @@
+﻿M Yes, what is it?
+W I've been walking around the festival for an hour looking for my son. 
+M Where did you see him last?
+W I saw him by the food stand. He was eating a hot dog. 
+M OK. What does he look like?
+W He's ten years old and skinny with curly black hair. 
+M What's he wearing?
+W He's wearing jeans and a striped T-shirt. And he's walking his dog.
+M OK, I’ll keep an eye out for him.
+
+
+8
+M Hi, I'm so glad you're open. I got a flat.
+W Did you drive here?
+M Yes. I drove slowly in from the highway. Do you fix tires here?
+W Well, normally, yes, but our mechanic is off today.
+M Oh, no.
+W He can fix it tomorrow if you can leave it.
+M I guess I have no choice. I can't drive it like this. 
+W Well, you can leave the keys with me, and the mechanic will fix it first thing in the morning.
+M In that case, I'll have to call home to have someone pick me up. Could I use a phone? My battery is dead.
+W Sure. You can use this one.
+
+
+
+
+9
+M Are you ready to go to dinner? 
+W Yes. I'm starving! 
+M Well, how about that Italian place over there? 
+W Actually, I've heard it's kind of expensive. 
+M All right. How about that new restaurant across the street?
+W I'd like to eat there, but look how long the line is! 
+M That's no problem. The place behind us has good food. 
+W Yes, it is good, but the restaurant staff is rude. 
+M Well, I only have one idea left. 
+W What's that? 
+M We could just go home and cook something there. 
+W That sounds like a great idea. Let's go. 
+
+
+10
+W Good morning, sir. How can I help you? 
+M Hi. I was wondering if I could rent a car. 
+W You didn't make a reservation? 
+M No. I didn't have time. I'm visiting on such short notice. 
+W Well, you've come to the right place. Um, we have a blue Ford Escort available for just $75 a day. 
+M Did you say $75 for a Ford Escort? 
+W Right. But, we also have bigger cars. You can get a Lincoln Continental for $140 a day. 
+M Oh, I can't afford that. I'll go for the Ford. What other expenses thould I expect? 
+W Um, $30 per day for full insurance and unlimited mileage. 
+M OK. I need to be on the safe side. I'll take the insurance package.

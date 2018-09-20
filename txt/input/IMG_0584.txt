@@ -1,0 +1,12 @@
+﻿12
+W Which movie would you like to see?
+M You don't care for science fiction movies, do you? 
+W No, I don't. I'd rather see something else. 
+M How about 2012 then? 
+W What time does it start? 
+M The first show starts in 30 minutes. We could make it on
+time. 
+W But, look! There's only one seat left. 
+M How about the next showings then? Plenty of seats are left. 
+W Well, I have to be home by 8 o'clock. 
+M In that case, we have only one choice. And seats are still available. But we have to buy the tickets right away. W Let's do that.
